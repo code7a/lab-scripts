@@ -9,5 +9,8 @@ passwd -d root
 #update
 yum update -y
 #clear history
+rm -f /root/.bash_history
 history -c
+sleep 1
+#shutdown
 init 0
