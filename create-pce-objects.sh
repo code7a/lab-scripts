@@ -11,8 +11,10 @@ curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/pai
 curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"app","value":"A-NGINX"}'
 #create httpd app label
 curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"app","value":"A-HTTPD"}'
-#create cockpit app label
-curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"app","value":"A-COCKPIT"}'
+#create opensuse app label
+curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"app","value":"A-OPENSUSE"}'
+#create suse app label
+curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"app","value":"A-SUSE"}'
 #create tomcat app label
 curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"app","value":"A-TOMCAT"}'
 #create k3s app label
@@ -88,3 +90,6 @@ curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/lab
 curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"os","value":"O-LINUX"}'
 #create windows os label
 curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/labels -H 'Content-Type: application/json' --data-raw '{"key":"os","value":"O-WINDOWS"}'
+#core services detection
+curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/settings/core_services -X PUT -H 'content-type: application/json' --data-raw '{"enabled":true}'
+curl -u $auth_username:$session_token https://$(hostname):8443/api/v2/orgs/1/settings/core_services -X PUT -H 'content-type: application/json' --data-raw '{"scanner_enabled":true}'
